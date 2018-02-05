@@ -9,23 +9,71 @@ public class Player : MonoBehaviour {
 	float ySpeed; 
 	public float accerlation;
 	public float decceleration;
-	public Vector3 moveDir;
-	public Vector3 lookTarget;
+	Vector3 moveDir;
+	Vector3 lookTarget;
 	public Transform crosshair;
 	public float fireRate;
 	public float currentFireRate;
-	public Vector3 trajectory;
+	Vector3 trajectory;
 	public AudioClip pew;
 	AudioSource auds;
+	SpriteRenderer sr;
+	public string enemyType;
+	public bool stunned;
+	public float stunTimer;
 
 	// Use this for initialization
 	void Start () 
 	{
 		auds = GetComponent<AudioSource> ();
+		sr = GetComponent<SpriteRenderer> ();
 	}
 	
 	// Update is called once per frame
 	void Update () 
+	{
+		handleStun ();
+		if (!stunned) {
+			handleControls ();
+		}
+		if (Input.GetKeyDown (KeyCode.Space)) 
+		{
+			GameObject enem = Instantiate (Resources.Load ("Prefabs/blueBot")) as GameObject; 
+		}
+		if (Input.GetKeyDown (KeyCode.R)) 
+		{
+			GameObject enem = Instantiate (Resources.Load ("Prefabs/redBot")) as GameObject; 
+		}
+	
+		if (Input.GetMouseButtonUp (0)) 
+		{
+			currentFireRate = fireRate;
+		}
+
+		trajectory = (lookTarget - transform.position).normalized;
+		if (trajectory != Vector3.zero) {
+			float angle = Mathf.Atan2 (trajectory.y, trajectory.x) * Mathf.Rad2Deg;
+			transform.rotation = Quaternion.AngleAxis (angle, Vector3.forward);
+		}
+	}
+
+	void handleStun()
+	{
+		if (stunned) {
+			sr.color = Color.blue;
+			stunTimer--;
+		} else {
+			sr.color = Color.white;
+		}
+
+		if (stunTimer <= 0) 
+		{
+			stunned = false;
+		}
+
+	}
+
+	void handleControls()
 	{
 		float xDir;
 		float yDir;
@@ -58,16 +106,11 @@ public class Player : MonoBehaviour {
 			}
 		}
 
-		trajectory = (lookTarget - transform.position).normalized;
-		if (trajectory != Vector3.zero) {
-			float angle = Mathf.Atan2 (trajectory.y, trajectory.x) * Mathf.Rad2Deg;
-			transform.rotation = Quaternion.AngleAxis (angle, Vector3.forward);
-		}
-
 		if (Input.GetMouseButton (0)) 
 		{
 			currentFireRate--;
-			if (currentFireRate <= 0) {
+			if (currentFireRate <= 0) 
+			{
 				GameObject bullet = Instantiate (Resources.Load ("Prefabs/fingerBullet")) as GameObject;
 				bullet.transform.position = this.transform.position;
 				BulletProperties bp = bullet.GetComponent<BulletProperties> ();
@@ -78,9 +121,5 @@ public class Player : MonoBehaviour {
 			}
 		}
 
-		if (Input.GetMouseButtonUp (0)) 
-		{
-			currentFireRate = fireRate;
-		}
 	}
 }

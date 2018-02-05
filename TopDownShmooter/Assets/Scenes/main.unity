@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 32232090}
   - component: {fileID: 32232094}
   m_Layer: 0
-  m_Name: finger
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -143,16 +143,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f216a930c0029463fb55fe7f1e743e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 0.5
-  accerlation: 0.01
-  decceleration: 0.01
-  moveDir: {x: 0, y: 0, z: 0}
-  lookTarget: {x: 0, y: 0, z: 0}
+  maxSpeed: 0.2
+  accerlation: 0.1
+  decceleration: 0.05
   crosshair: {fileID: 383215386}
   fireRate: 5
   currentFireRate: 5
-  trajectory: {x: 0, y: 0, z: 0}
   pew: {fileID: 8300000, guid: d311633ed574442b488abfb27102733f, type: 3}
+  enemyType: 
+  stunned: 0
+  stunTimer: 0
 --- !u!61 &32232091
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -388,6 +388,52 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1232558789
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4117407689676988, guid: 73bc11dc52f224a05a29bb89592ee857, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 1.2783872
+      objectReference: {fileID: 0}
+    - target: {fileID: 4117407689676988, guid: 73bc11dc52f224a05a29bb89592ee857, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.33929312
+      objectReference: {fileID: 0}
+    - target: {fileID: 4117407689676988, guid: 73bc11dc52f224a05a29bb89592ee857, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4117407689676988, guid: 73bc11dc52f224a05a29bb89592ee857, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4117407689676988, guid: 73bc11dc52f224a05a29bb89592ee857, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4117407689676988, guid: 73bc11dc52f224a05a29bb89592ee857, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4117407689676988, guid: 73bc11dc52f224a05a29bb89592ee857, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4117407689676988, guid: 73bc11dc52f224a05a29bb89592ee857, type: 2}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030363762733432, guid: 73bc11dc52f224a05a29bb89592ee857, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 73bc11dc52f224a05a29bb89592ee857, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1624165860
 GameObject:
   m_ObjectHideFlags: 0
@@ -429,7 +475,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.33088237, g: 0.33088237, b: 0.33088237, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
