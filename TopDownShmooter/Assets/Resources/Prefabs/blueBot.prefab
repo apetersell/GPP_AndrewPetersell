@@ -22,7 +22,6 @@ GameObject:
   - component: {fileID: 212422002383949840}
   - component: {fileID: 95850565494693042}
   - component: {fileID: 61761689852665608}
-  - component: {fileID: 114740821931563404}
   - component: {fileID: 50870530779960150}
   - component: {fileID: 114212234975154350}
   m_Layer: 0
@@ -128,17 +127,7 @@ MonoBehaviour:
   startX: 8
   startY: 4.4
   player: {fileID: 0}
---- !u!114 &114740821931563404
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1106378505031434}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3fb48cd3fffff4740aec8d51c4d2e40b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  markedForDeath: 0
 --- !u!212 &212422002383949840
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BlueBot : Enemy 
 {
-	public override void startFuctions ()
+	public void Start ()
 	{
 		randomSpawn ();
 		findPlayer ();

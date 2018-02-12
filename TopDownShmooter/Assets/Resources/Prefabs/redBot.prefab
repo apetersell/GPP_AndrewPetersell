@@ -22,7 +22,6 @@ GameObject:
   - component: {fileID: 212036192883285928}
   - component: {fileID: 95360872593807274}
   - component: {fileID: 61560546629192034}
-  - component: {fileID: 114932245379710948}
   - component: {fileID: 50909452985018070}
   - component: {fileID: 114729576353491300}
   m_Layer: 0
@@ -128,18 +127,8 @@ MonoBehaviour:
   startX: 8
   startY: 4.4
   player: {fileID: 0}
+  markedForDeath: 0
   borderline: 0.5
---- !u!114 &114932245379710948
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1207249046873024}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3fb48cd3fffff4740aec8d51c4d2e40b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &212036192883285928
 SpriteRenderer:
   m_ObjectHideFlags: 1

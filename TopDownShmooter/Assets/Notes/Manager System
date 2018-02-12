@@ -1,0 +1,64 @@
+//Manager Systems
+
+You have a type that requires of instances and ways to interact with those instances collectively.
+ex) Bullet Manager: Keeps track of all of the bullets on screen.
+
+Cornerstone of your game.
+
+Supports the Following Aspects:
+- Lifecycle: Control how/when managed instances are created, updated, and destroyed.
+- Shared State/Context: Provide access to shared state or context to managed intsances.
+- Access: Provide and control access to the instances.
+- Queries: Allow queries across the managed intances (i.e. quereis against a set of instances and not agains individuals)
+
+
+
+Bullet Manager Can Have:
+- Life Cylce: You want one place where you can create all the bullets, one place whwere you can upddate them all, and one place to destroy them all.
+- Shared Context: Bullet in a group have shared paramaters (e.g. duration, color, etc.)
+
+
+How to Build:
+-What's the group? 
+-What do I need to do with/to the group? 
+Determine which aspects you need to manage about the group (i.e. lifecycles, access, shared state, queries). If you don't need to manage any of those aspects, you don't need a manager you need a container/collection (e.g. a list or dictionairy).
+-Is there any state? 
+Determine if the manager needs any state to do its work.  If it doesn't, you might not need a manager - just use a method or set of methods.
+
+Factory Patter: 
+- Has factory methods that create things so that indivdals don't have to worry about it.
+- Run a bunch of updates at once.
+
+Private List<Widgets> _widgets;
+
+public void Update()
+{
+	
+	foreach (Widget w in _widgets)
+	{
+		w.x += 1;
+		w.y += 2;
+	}
+}
+
+OR
+
+//Forwarding
+public void Update()
+{
+	
+	foreach (Widget w in _widgets)
+	{
+		w.update();
+	}
+}
+
+
+Destruction!!!
+public class Widget {
+	private WidgetManager _wm
+	{
+		_
+
+	}
+}

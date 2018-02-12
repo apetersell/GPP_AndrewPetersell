@@ -25,9 +25,9 @@ public abstract class Enemy: MonoBehaviour
 	protected int directionModY;
 	protected float gracePeriod;
 	public GameObject player;
+	public bool markedForDeath;
 
 	public abstract void updateFuctions ();
-	public abstract void startFuctions ();
 	public abstract void fire ();
 	public abstract void move ();
 
@@ -164,7 +164,7 @@ public abstract class Enemy: MonoBehaviour
 
 	protected void die ()
 	{
-		Destroy (this.gameObject);
+		markedForDeath = true;
 	}
 
 	protected void handleGracePeriod()

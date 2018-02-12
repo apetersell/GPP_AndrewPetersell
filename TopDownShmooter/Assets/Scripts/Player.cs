@@ -117,7 +117,7 @@ public class Player : MonoBehaviour {
 				bp.startPos = transform.position;
 				bp.direction = new Vector3 (trajectory.x, trajectory.y, 0).normalized;
 				currentFireRate = fireRate;
-				auds.PlayOneShot (pew);
+//				auds.PlayOneShot (pew);
 			}
 		}
 

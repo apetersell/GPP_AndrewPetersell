@@ -2,17 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyController : MonoBehaviour {
+public class GameManager : MonoBehaviour {
+
+	EnemyManager enemyM;
 
 	// Use this for initialization
 	void Start () 
 	{
-		GetComponent<Enemy> ().startFuctions ();
+		enemyM = GetComponent<EnemyManager> ();
+		enemyM.commenceAttack ();
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
-		GetComponent<Enemy> ().updateFuctions ();
+		enemyM.enemyUpdates ();
 	}
 }

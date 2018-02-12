@@ -7,7 +7,7 @@ public class RedBot : Enemy
 	int dir;
 	public float borderline; 
 
-	public override void startFuctions ()
+	public void Start ()
 	{
 		findPlayer ();
 		randomSpawn ();
@@ -18,7 +18,6 @@ public class RedBot : Enemy
 	protected void randomDir()
 	{
 		dir = Random.Range (0, 2);
-		Debug.Log (dir);
 	}
 
 	public override void updateFuctions ()
