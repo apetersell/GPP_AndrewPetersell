@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using EventSystemAJP;
 
 public class EnemyManager : MonoBehaviour {
 
@@ -59,6 +60,7 @@ public class EnemyManager : MonoBehaviour {
 	{
 		activeWave.Remove (e);
 		Destroy (e.gameObject);
+		EventManager.instance.Fire (new EnemyDeath()); 
 	}
 
 	void makeNewWaveList()

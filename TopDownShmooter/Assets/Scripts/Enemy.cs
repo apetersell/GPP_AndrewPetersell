@@ -1,7 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using EventSystemAJP;
 
+public class EnemyDeath: GameEvent 
+{
+
+}
+	
 public abstract class Enemy: MonoBehaviour
 {
 	public float HP;
@@ -43,7 +49,7 @@ public abstract class Enemy: MonoBehaviour
 		transform.position = new Vector3(initX, initY, 0);
 	}
 
-	public void handleDeath()
+	public virtual void handleDeath()
 	{
 		if (HP <= 0) 
 		{

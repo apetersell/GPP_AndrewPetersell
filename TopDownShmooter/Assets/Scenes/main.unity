@@ -780,6 +780,7 @@ MonoBehaviour:
   enemyTypes:
   - redBot
   - blueBot
+  - greenBot
   numOfEnemyTypes: 0
   minTimeBetweenSpawns: 1
   maxTimeBetweenSpawns: 3
