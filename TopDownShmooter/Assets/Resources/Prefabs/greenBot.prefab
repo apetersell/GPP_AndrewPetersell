@@ -120,7 +120,7 @@ MonoBehaviour:
   HP: 10
   acceleration: 0.1
   decceleration: 0.1
-  topSpeed: 0.05
+  topSpeed: 0.01
   fireRate: 1
   contactDamage: 0
   deathSound: {fileID: 0}
@@ -129,7 +129,7 @@ MonoBehaviour:
   player: {fileID: 0}
   markedForDeath: 0
   borderline: 0.5
-  speedIncrement: 0.01
+  speedIncrement: 0.02
 --- !u!212 &212105176015747142
 SpriteRenderer:
   m_ObjectHideFlags: 1

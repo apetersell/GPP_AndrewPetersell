@@ -23,7 +23,7 @@ namespace EventSystemAJP
 					_instance = new EventManager ();
 				}
 
-				return instance;
+				return _instance;
 			}
 		}
 
