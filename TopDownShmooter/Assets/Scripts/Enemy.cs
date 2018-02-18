@@ -168,7 +168,7 @@ public abstract class Enemy: MonoBehaviour
 		hitStun = hitstun;
 	}
 
-	protected void die ()
+	public virtual void die ()
 	{
 		markedForDeath = true;
 	}

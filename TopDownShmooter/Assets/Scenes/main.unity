@@ -778,8 +778,6 @@ MonoBehaviour:
   activeWave: []
   waveList: []
   enemyTypes:
-  - redBot
-  - blueBot
   - greenBot
   numOfEnemyTypes: 0
   minTimeBetweenSpawns: 1

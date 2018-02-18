@@ -15,7 +15,7 @@ public class GreenBot : Enemy {
 		randomSpawn ();
 		spawnSettle ();
 		randomDir ();
-		EventManager.instance.Register<EnemyDeath> (speedUp);
+//		EventManager.instance.Register<EnemyDeath> (speedUp);
 	}
 
 	protected void randomDir()
@@ -92,12 +92,11 @@ public class GreenBot : Enemy {
 		}
 	}
 
-	public override void handleDeath ()
+	public override void die ()
 	{
 		EventManager.instance.Unregister<EnemyDeath> (speedUp);
-		base.handleDeath ();
+		base.die ();
 	}
-
 	public void speedUp (GameEvent e)
 	{
 		EnemyDeath powerUpEvent = e as EnemyDeath;
