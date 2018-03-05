@@ -109,6 +109,6 @@ public class GreenBot : Enemy {
 
 	private void DoTasks()
 	{
-		tm.Do (new ChangeSpriteColorOverTime (this.gameObject, Color.white, Color.red, 0.5f));
+		tm.Do (new SetPos (this.gameObject, Vector3.zero)).Then(new ChangeSpriteColorOverTime(this.gameObject, Color.white, Color.red, 2f));
 	}
 }

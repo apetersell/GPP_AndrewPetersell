@@ -18,7 +18,7 @@ public class TaskManager
 	// Update is called once per frame
 	public void Update () 
 	{
-		for (int i = TaskList.Count; i >= 0; i--) 
+		for (int i = TaskList.Count - 1; i >= 0; i--) 
 		{
 			Task t = TaskList [i];
 
