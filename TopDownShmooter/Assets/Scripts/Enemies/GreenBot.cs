@@ -8,6 +8,7 @@ public class GreenBot : Enemy {
 	int dir;
 	public float borderline; 
 	public float speedIncrement; 
+	private readonly TaskManager tm = new TaskManager();
 
 	public void Start ()
 	{
@@ -15,6 +16,7 @@ public class GreenBot : Enemy {
 		randomSpawn ();
 		spawnSettle ();
 		randomDir ();
+		DoTasks ();
 		EventManager.instance.Register<EnemyDeath> (speedUp);
 	}
 
@@ -30,6 +32,7 @@ public class GreenBot : Enemy {
 		handleDirection ();
 		handleDeath ();
 		handleGracePeriod ();
+		tm.Update ();
 		move ();
 	}
 
@@ -102,5 +105,10 @@ public class GreenBot : Enemy {
 		EnemyDeath powerUpEvent = e as EnemyDeath;
 		topSpeed += speedIncrement;
 		Debug.Log ("SPEED UP: " + topSpeed);
+	}
+
+	private void DoTasks()
+	{
+		tm.Do (new ChangeSpriteColorOverTime (this.gameObject, Color.white, Color.red, 0.5f));
 	}
 }

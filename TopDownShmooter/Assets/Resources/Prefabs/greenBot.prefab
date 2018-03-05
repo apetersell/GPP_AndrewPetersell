@@ -118,8 +118,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HP: 10
-  acceleration: 0.1
-  decceleration: 0.1
+  acceleration: 0.01
+  decceleration: 0.01
   topSpeed: 0.01
   fireRate: 1
   contactDamage: 0
