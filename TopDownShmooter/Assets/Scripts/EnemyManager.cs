@@ -20,6 +20,7 @@ public class EnemyManager : MonoBehaviour {
 	Text counterDisplay;
 	bool playedSound;
 	public AudioClip waveCompleteSound; 
+	public List<int> bossWave = new List<int>();
 
 
 	public void commenceAttack ()
@@ -68,17 +69,24 @@ public class EnemyManager : MonoBehaviour {
 		waveCounter++;
 		playedSound = false;
 		spawnTimerMax = Random.Range (minTimeBetweenSpawns, maxTimeBetweenSpawns);
-		for (int i = 0; i < waveCounter; i++) 
-		{
-			int rando = Random.Range (0, enemyTypes.Length);
-			string type = enemyTypes [rando];
-			waveList.Add (type);
+		if (!bossWave.Contains (waveCounter)) {
+			for (int i = 0; i < waveCounter; i++) {
+				int rando = Random.Range (0, enemyTypes.Length);
+				string type = enemyTypes [rando];
+				waveList.Add (type);
+			}
+		} else {
+			waveList.Add ("bossBot");
 		}
 	}
 
 	void waveOperations ()
 	{
-		counterDisplay.text = "Wave: " + waveCounter;
+		if (!bossWave.Contains (waveCounter)) {
+			counterDisplay.text = "Wave: " + waveCounter;
+		} else {
+			counterDisplay.text = "Wave: BOSS!!!";
+		}
 		spawnTimer += Time.deltaTime;
 		if (spawnTimer > spawnTimerMax) 
 		{

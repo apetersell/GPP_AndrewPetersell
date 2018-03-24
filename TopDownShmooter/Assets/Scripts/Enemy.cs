@@ -3,10 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using EventSystemAJP;
 
-public class EnemyDeath: GameEvent 
-{
-
-}
+public class EnemyDeath: GameEvent {}
 	
 public abstract class Enemy: MonoBehaviour
 {
@@ -19,6 +16,7 @@ public abstract class Enemy: MonoBehaviour
 	public AudioClip deathSound;
 	public float startX;
 	public float startY;
+	public bool minion;
 	protected float shotTimer;
 	protected bool hit;
 	protected float hitStun;
@@ -44,9 +42,12 @@ public abstract class Enemy: MonoBehaviour
 
 	protected void randomSpawn()
 	{
-		float initX = Random.Range (-startX, startX);
-		float initY = Random.Range (-startY, startY);
-		transform.position = new Vector3(initX, initY, 0);
+		if (!minion) 
+		{
+			float initX = Random.Range (-startX, startX);
+			float initY = Random.Range (-startY, startY);
+			transform.position = new Vector3 (initX, initY, 0);
+		}
 	}
 
 	public virtual void handleDeath()

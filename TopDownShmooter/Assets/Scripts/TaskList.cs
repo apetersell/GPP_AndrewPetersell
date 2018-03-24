@@ -98,6 +98,22 @@ public class SetPos : GOTask
 	}
 }
 
+public class ChangeScaleOverTime : TimedGOTask
+{
+	private readonly Vector3 startScale;
+	private readonly Vector3 endScale;
+	public ChangeScaleOverTime (GameObject sentGO, Vector3 start, Vector3 end, float duration) : base (sentGO, duration)
+	{
+		startScale = start;
+		endScale = end;
+	}
+
+	protected override void OnStep (float t)
+	{
+		GO.transform.localScale = Vector3.Lerp (startScale, endScale, t);
+	}
+}
+
 public class ChangeSpriteColorOverTime : TimedGOTask
 {
 	private readonly Color startColor;
@@ -105,7 +121,7 @@ public class ChangeSpriteColorOverTime : TimedGOTask
 	private SpriteRenderer sr;
 	public ChangeSpriteColorOverTime (GameObject sentGO, Color start, Color end, float duration) : base(sentGO, duration) 
 	{
-		Debug.Assert (GO.GetComponent<SpriteRenderer> () != null, "Game object does not have SpriteRendere attached.");
+		Debug.Assert (GO.GetComponent<SpriteRenderer> () != null, "Game object does not have SpriteRenderer attached.");
 		startColor = start;
 		endColor = end;
 		sr = GO.GetComponent<SpriteRenderer> ();
@@ -114,5 +130,31 @@ public class ChangeSpriteColorOverTime : TimedGOTask
 	protected override void OnStep (float t)
 	{
 		sr.color = Color.Lerp (startColor, endColor, t);
+	}
+}
+	
+public class AdvanceBossPhase : Task
+{
+	public readonly bossBot bb;
+	public AdvanceBossPhase (bossBot sent)
+	{
+		bb = sent;
+	}
+
+	protected override void Init ()
+	{
+		switch (bb.currentPhase) 
+		{
+		case BossPhase.Growing:
+			bb.currentPhase = BossPhase.Spawning;
+			break;
+		case BossPhase.Spawning:
+			bb.currentPhase = BossPhase.Shooting;
+			break;
+		case BossPhase.Shooting:
+			bb.currentPhase = BossPhase.Chasing;
+			break;
+		}
+		bb.phaseNum++;
 	}
 }

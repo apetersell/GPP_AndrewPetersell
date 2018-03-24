@@ -16,7 +16,7 @@ public class GreenBot : Enemy {
 		randomSpawn ();
 		spawnSettle ();
 		randomDir ();
-		DoTasks ();
+//		DoTasks ();
 		EventManager.instance.Register<EnemyDeath> (speedUp);
 	}
 
@@ -107,8 +107,8 @@ public class GreenBot : Enemy {
 		Debug.Log ("SPEED UP: " + topSpeed);
 	}
 
-	private void DoTasks()
-	{
-		tm.Do (new SetPos (this.gameObject, Vector3.zero)).Then(new ChangeSpriteColorOverTime(this.gameObject, Color.white, Color.red, 2f));
-	}
+//	private void DoTasks()
+//	{
+//		tm.Do (new ChangeSpriteColorOverTime (this.gameObject, Color.white, Color.red, 5f)).Then(new ChangeSpriteColorOverTime(this.gameObject, Color.red, Color.blue, 5f));
+//	}
 }
