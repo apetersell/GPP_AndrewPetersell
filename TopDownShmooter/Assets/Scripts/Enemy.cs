@@ -162,7 +162,7 @@ public abstract class Enemy: MonoBehaviour
 		}
 	}
 
-	public void takeDamage (float damage, float hitstun)
+	public virtual void takeDamage (float damage, float hitstun)
 	{
 		HP -= damage;
 		hit = true;

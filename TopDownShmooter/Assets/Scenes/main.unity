@@ -778,9 +778,7 @@ MonoBehaviour:
   activeWave: []
   waveList: []
   enemyTypes:
-  - redBot
-  - blueBot
-  - greenBot
+  - purpBot
   numOfEnemyTypes: 0
   minTimeBetweenSpawns: 1
   maxTimeBetweenSpawns: 3
