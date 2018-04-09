@@ -784,7 +784,7 @@ MonoBehaviour:
   maxTimeBetweenSpawns: 3
   timeBetweenWaves: 5
   waveCompleteSound: {fileID: 8300000, guid: 63fac833066e1463991af1973fc1f30b, type: 3}
-  bossWave: 02000000
+  bossWave: 05000000
 --- !u!114 &1719243282
 MonoBehaviour:
   m_ObjectHideFlags: 0

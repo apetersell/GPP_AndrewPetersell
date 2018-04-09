@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 95231510086732844}
   - component: {fileID: 61241633019329960}
   - component: {fileID: 50942789236686210}
-  - component: {fileID: 114382462085703796}
+  - component: {fileID: 114565662043919296}
   m_Layer: 0
   m_Name: purpBot
   m_TagString: Enemy
@@ -106,7 +106,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114382462085703796
+--- !u!114 &114565662043919296
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -114,7 +114,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1202740602594208}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6977d2e1d042c4542a923f756a57d013, type: 3}
+  m_Script: {fileID: 11500000, guid: 8e2386d3e73bc4920b8250f432106d75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   HP: 15
@@ -135,6 +135,8 @@ MonoBehaviour:
   attackDir: {x: 0, y: 0, z: 0}
   sightDistance: 3
   prepTime: 3
+  targetPos: {x: 0, y: 0, z: 0}
+  strikeTimer: 0
 --- !u!212 &212936806508493466
 SpriteRenderer:
   m_ObjectHideFlags: 1

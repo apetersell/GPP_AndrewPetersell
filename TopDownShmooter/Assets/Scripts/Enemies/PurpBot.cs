@@ -11,8 +11,6 @@ public class PurpBot : Enemy
 	public Vector3 attackDir;
 	public float sightDistance;
 	public float prepTime;
-	bool pastX;
-	bool pastY;
 	public Vector3 targetPos;
 
 	// Use this for initialization
