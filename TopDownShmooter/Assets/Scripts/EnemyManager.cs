@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using EventSystemAJP;
 
+public class NewWave : GameEvent {};
+
 public class EnemyManager : MonoBehaviour {
 
 	public int waveCounter = 0;
@@ -17,7 +19,7 @@ public class EnemyManager : MonoBehaviour {
 	float waveTimer;
 	float spawnTimer;
 	float spawnTimerMax;
-	Text counterDisplay;
+	public Text counterDisplay;
 	bool playedSound;
 	public AudioClip waveCompleteSound; 
 	public List<int> bossWave = new List<int>();
@@ -26,7 +28,8 @@ public class EnemyManager : MonoBehaviour {
 	public void commenceAttack ()
 	{
 		makeNewWaveList ();
-		counterDisplay = GameObject.Find ("WaveCounter").GetComponent<Text> ();
+		EventManager.instance.Register<GameOver> (GameOver);
+//		counterDisplay = GameObject.Find ("WaveCounter").GetComponent<Text> ();
 	}
 		
 	public void enemyUpdates ()
@@ -66,6 +69,7 @@ public class EnemyManager : MonoBehaviour {
 
 	void makeNewWaveList()
 	{
+		EventManager.instance.Fire (new NewWave());
 		waveCounter++;
 		playedSound = false;
 		spawnTimerMax = Random.Range (minTimeBetweenSpawns, maxTimeBetweenSpawns);
@@ -116,4 +120,14 @@ public class EnemyManager : MonoBehaviour {
 		}
 	}
 
+	public void GameOver (GameEvent e)
+	{
+		Debug.Log ("CLEAN HOUSE");
+		GameOver powerUpEvent = e as GameOver;
+		for (int i = 0; i < activeWave.Count; i++) 
+		{
+			Destroy (activeWave [i].gameObject);
+		}
+		EventManager.instance.Unregister<GameOver> (GameOver);
+	}
 }

@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06dafb9e23a1a48e896234f1651fd6ea, type: 3}
+  m_Name: PrefabDB
+  m_EditorClassIdentifier: 
+  _levels:
+  - {fileID: 1280718289449766, guid: 13d23942d23d14304955c185cf6007e3, type: 2}
+  - {fileID: 1284666948233494, guid: 263042da3b0ff471c8ff6aab70b73f00, type: 2}
+  - {fileID: 1142395132705256, guid: 32f6b7240131d49b492c5b6abf5f6997, type: 2}

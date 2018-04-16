@@ -37,9 +37,9 @@ public abstract class Enemy: MonoBehaviour
 
 	protected void findPlayer()
 	{
-		player = GameObject.Find ("Player");
+		Player p = (Player)FindObjectOfType (typeof(Player)); 
+		player = p.gameObject; 
 	}
-
 	protected void randomSpawn()
 	{
 		if (!minion) 

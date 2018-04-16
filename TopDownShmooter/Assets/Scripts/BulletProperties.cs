@@ -41,16 +41,22 @@ public class BulletProperties : MonoBehaviour
 	{
 		if (friendly) {
 			Enemy e = coll.gameObject.GetComponent<Enemy> ();
+			TitleBot tb = coll.gameObject.GetComponent<TitleBot> ();
 			if (e != null) {
 				Destroy (this.gameObject);
 				e.takeDamage (damage, hitStun);
+			} else if (tb != null) {
+				Destroy (this.gameObject);
+				tb.die ();
 			}
 		} else {
 			Player p = coll.gameObject.GetComponent<Player> (); 
 			if (p != null) {
 				Destroy (this.gameObject); 
 				p.stunned = true;
-				p.stunTimer = damage;
+				p.stunTimer = hitStun;
+				GameScene gs = (GameScene)FindObjectOfType (typeof(GameScene));  
+				gs.takeDamage (damage);
 			}
 		}
 	}

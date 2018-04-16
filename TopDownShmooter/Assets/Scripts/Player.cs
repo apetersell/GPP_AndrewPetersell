@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour {
 
@@ -21,29 +22,34 @@ public class Player : MonoBehaviour {
 	public string enemyType;
 	public bool stunned;
 	public float stunTimer;
+	public Image hpMeter;
+	public float maxHP;
+	public float currentHP;
 
 	// Use this for initialization
 	void Start () 
 	{
 		auds = GetComponent<AudioSource> ();
 		sr = GetComponent<SpriteRenderer> ();
+		currentHP = maxHP;
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
+		hpMeter.fillAmount = currentHP / maxHP;
 		handleStun ();
 		if (!stunned) {
 			handleControls ();
 		}
-		if (Input.GetKeyDown (KeyCode.Space)) 
-		{
-			GameObject enem = Instantiate (Resources.Load ("Prefabs/blueBot")) as GameObject; 
-		}
-		if (Input.GetKeyDown (KeyCode.R)) 
-		{
-			GameObject enem = Instantiate (Resources.Load ("Prefabs/redBot")) as GameObject; 
-		}
+//		if (Input.GetKeyDown (KeyCode.Space)) 
+//		{
+//			GameObject enem = Instantiate (Resources.Load ("Prefabs/blueBot")) as GameObject; 
+//		}
+//		if (Input.GetKeyDown (KeyCode.R)) 
+//		{
+//			GameObject enem = Instantiate (Resources.Load ("Prefabs/redBot")) as GameObject; 
+//		}
 	
 		if (Input.GetMouseButtonUp (0)) 
 		{
@@ -121,5 +127,10 @@ public class Player : MonoBehaviour {
 			}
 		}
 
+	}
+
+	public void takeDamage (float damage)
+	{
+		currentHP -= damage;
 	}
 }
