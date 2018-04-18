@@ -7,12 +7,13 @@ public class TitleScreen : Sceney<TransitionData> {
 	
 	public static List<int> takenSlots = new List<int> ();
 	public List<Transform> positions = new List<Transform> ();
-	public bool gameStarting;
+	public static bool gameStarting;
 
 	// Use this for initialization
 	void Start () 
 	{
 		gameStarting = false; 
+		takenSlots.Clear ();
 	}
 	
 	// Update is called once per frame
@@ -20,7 +21,6 @@ public class TitleScreen : Sceney<TransitionData> {
 	{
 		if (Input.GetMouseButtonDown (0)) {
 			gameStarting = true;
-			takenSlots.Clear ();
 			EventManager.instance.Fire (new GameStart ());
 			Services.Scenes.Swap<GameScene> ();
 		}

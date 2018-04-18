@@ -35,6 +35,9 @@ public class TitleBot : MonoBehaviour {
 	{
 		EnemyDeath powerUpEvent = e as EnemyDeath;
 		EventManager.instance.Unregister<GameStart> (getOut);
-		Destroy (this.gameObject);
+		TitleScreen.takenSlots.Remove (myInt);
+		if (this != null) {
+			Destroy (this.gameObject);
+		}
 	}
 }

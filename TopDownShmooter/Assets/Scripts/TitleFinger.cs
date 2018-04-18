@@ -27,7 +27,9 @@ public class TitleFinger : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		fsm.Update ();
+		if (!TitleScreen.gameStarting) {
+			fsm.Update ();
+		}
 		trajectory = (lookTarget - transform.position).normalized;
 		if (trajectory != Vector3.zero) {
 			float angle = Mathf.Atan2 (trajectory.y, trajectory.x) * Mathf.Rad2Deg;
